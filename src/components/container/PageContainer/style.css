@@ -1,0 +1,17 @@
+@keyframes fade-in {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.container {
+  transition-timing-function: ease-in;
+  transition: 0.2s;
+
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  animation-direction:alternate;
+}
