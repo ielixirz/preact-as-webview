@@ -50,11 +50,7 @@ const Stepper = () => {
             <Step key={item.title} title={item.title} />
           ))}
         </Steps>
-        <div
-          style={{
-            height: 400,
-          }}
-        >
+        <div>
           <Carousel afterChange={onChange}>
             {steps.map((item) => {
               return (
