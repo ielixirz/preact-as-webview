@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import PageContainer from "../../components/container/PageContainer";
 import style from "./style.css";
 import AliceCarousel from "react-alice-carousel";
-import { Steps, Button, message, Carousel } from "antd";
-const { Step } = Steps;
 
 // Note: `user` comes from the URL, courtesy of our router
 const contentStyle = {
