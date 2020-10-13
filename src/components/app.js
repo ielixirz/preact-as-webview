@@ -4,6 +4,7 @@ import { Router } from 'preact-router';
 // Code-splitting is automated for `routes` directory
 import Home from '../routes/home';
 import Profile from '../routes/profile';
+import Stepper from '../routes/stepper';
 
 const App = () => (
 	<div id="app">
@@ -11,6 +12,7 @@ const App = () => (
 			<Home path="/" />
 			<Profile path="/profile/" user="me" />
 			<Profile path="/profile/:user" />
+			<Stepper path="/stepper" />
 		</Router>
 	</div>
 )
