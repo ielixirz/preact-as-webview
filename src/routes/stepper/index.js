@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import PageContainer from "../../components/container/PageContainer";
 import style from "./style.css";
 import { Steps, Button, message, Carousel } from "antd";
@@ -29,7 +29,14 @@ const contentStyle = {
 };
 const Stepper = () => {
   const [page, setCurrent] = useState(0);
-
+  const stepperContent = useRef(null);
+  useEffect(() => {
+    try {
+      stepperContent.current.goTo(page);
+    } catch (e) {
+      console.log(e);
+    }
+  }, [page]);
   const next = () => {
     const current = page + 1;
     setCurrent(current);
@@ -51,7 +58,7 @@ const Stepper = () => {
           ))}
         </Steps>
         <div>
-          <Carousel afterChange={onChange}>
+          <Carousel ref={stepperContent} afterChange={onChange}>
             {steps.map((item) => {
               return (
                 <div>
