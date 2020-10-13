@@ -1,7 +1,8 @@
-import { h } from "preact";
+import React, { h } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 import PageContainer from "../../components/container/PageContainer";
 import style from "./style.css";
+import AliceCarousel from "react-alice-carousel";
 import { Steps, Button, message, Carousel } from "antd";
 const { Step } = Steps;
 
@@ -36,15 +37,18 @@ const Stepper = ({ contents }) => {
         }}
       >
         {/*data must be component in contents[index].content*/}
-        <Carousel ref={stepperContent} afterChange={onChange}>
-          {contents.map((item) => {
+        <AliceCarousel
+          ref={stepperContent}
+          mouseTracking
+          items={contents.map((item) => {
             return (
               <div>
                 <h3 style={contentStyle}>{item.content}</h3>
               </div>
             );
           })}
-        </Carousel>
+          afterChange={onChange}
+        />
       </div>
     </PageContainer>
   );
